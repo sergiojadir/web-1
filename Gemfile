@@ -65,3 +65,7 @@ gem "refile-mini_magick"
 gem 'sinatra'
 gem 'sidekiq'
 gem 'sidekiq-cron'
+
+gem 'mini_racer', github: 'discourse/mini_racer'
+
+gem 'simple_form'

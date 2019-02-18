@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/discourse/mini_racer.git
+  revision: b3c9b35859deb189586384f3ae927586a36dda14
+  specs:
+    mini_racer (0.2.4)
+      libv8 (>= 6.3)
+
+GIT
   remote: https://github.com/refile/refile.git
   revision: 0f7a6d90e03d15d89c156b693800587e1c121dbd
   specs:
@@ -97,6 +104,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -198,6 +206,9 @@ GEM
     sidekiq-cron (1.1.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
+    simple_form (3.5.1)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -249,6 +260,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mini_racer!
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.6)
@@ -258,6 +270,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq
   sidekiq-cron
+  simple_form
   sinatra
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -267,4 +280,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.4
+   1.17.1

@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 class="jumbotron-heading"><%= @file.file_filename %></h1>
+  <div class="row">
+		<div class="col-sm-3">
+		  <strong> Purchaser name: </strong>
+		</div>
+		<div class="col-sm-9">
+		  <%= @file.sale.purchaser_name %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+		  <strong> Item description: </strong>
+		</div>
+		<div class="col-sm-9">
+		  <%= @file.sale.item_description %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+		  <strong> Item price: </strong>
+		</div>
+		<div class="col-sm-9">
+		  <%= @file.sale.item_price %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+		  <strong> Purchase count: </strong>
+		</div>
+		<div class="col-sm-9">
+		  <%= @file.sale.purchase_count %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+		 <strong> Merchant address: </strong>
+		</div>
+		<div class="col-sm-9">
+		  <%= @file.sale.merchant_address %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+		  <strong>Merchant name:</strong>
+		</div>
+		<div class="col-sm-9">
+		  <%= @file.sale.merchant_name %>
+		</div>
+	</div>
+
+	<div class="row"> <%= link_to '<<- Back', sale_files_path %> </div>
+</div>
