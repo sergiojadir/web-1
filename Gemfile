@@ -55,3 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Add boostrap gem
 gem 'bootstrap', '~> 4.3.1'
+
+# Ruby file upload
+gem "refile", require: "refile/rails", github: 'refile/refile'
+gem "refile-mini_magick"
