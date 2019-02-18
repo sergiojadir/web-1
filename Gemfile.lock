@@ -76,12 +76,18 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
+    connection_pool (2.2.2)
     crass (1.0.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.8.0)
+    et-orbi (1.1.7)
+      tzinfo
     execjs (2.7.0)
     ffi (1.9.25)
+    fugit (1.1.8)
+      et-orbi (~> 1.1, >= 1.1.7)
+      raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -118,6 +124,7 @@ GEM
     popper_js (1.14.5)
     public_suffix (3.0.3)
     puma (3.12.0)
+    raabro (1.1.6)
     rack (2.0.6)
     rack-protection (2.0.5)
       rack
@@ -150,6 +157,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.0)
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -182,6 +190,14 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    sidekiq (5.2.5)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
+    sidekiq-cron (1.1.0)
+      fugit (~> 1.1)
+      sidekiq (>= 4.2.1)
     sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -240,6 +256,9 @@ DEPENDENCIES
   refile-mini_magick
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
+  sidekiq-cron
+  sinatra
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

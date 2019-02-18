@@ -59,3 +59,9 @@ gem 'bootstrap', '~> 4.3.1'
 # Ruby file upload
 gem "refile", require: "refile/rails", github: 'refile/refile'
 gem "refile-mini_magick"
+
+# Background processing for Ruby
+# Background Jobs Sidekiq configuration
+gem 'sinatra'
+gem 'sidekiq'
+gem 'sidekiq-cron'

@@ -1,0 +1,7 @@
+:concurrency: <%= ENV["SIDEKIQ_CONCURRENCY"] || 4 %>
+staging:
+  :concurrency: <%= ENV["SIDEKIQ_CONCURRENCY"] || 4 %>
+production:
+  :concurrency: <%= ENV["SIDEKIQ_CONCURRENCY"] || 4 %>
+:queues:
+  - import_file
