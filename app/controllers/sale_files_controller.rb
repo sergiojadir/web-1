@@ -1,5 +1,5 @@
 class SaleFilesController < ApplicationController
-	before_action :set_file, only: [:edit, :update, :show]
+	before_action :set_file, only: [:edit, :update, :show, :destroy]
 
 	def index
 		@files = SaleFile.all
@@ -34,6 +34,12 @@ class SaleFilesController < ApplicationController
 
 	def show
 		@sales = @file.sales.page(params[:page]).per(6)
+	end
+
+	def destroy
+  	@file.destroy
+  	flash[:success] = "Destroyed."
+  	redirect_to sale_files_path
 	end
 
 	private

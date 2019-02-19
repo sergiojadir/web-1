@@ -14,6 +14,7 @@
 						    <th>Purchaser name</th>
                 <th>Send date</th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -22,7 +23,12 @@
 					        <td><%= file.file_filename.humanize %></td>
                   <td><%= l(file.created_at) %></td>
                   <td><%= link_to "Details", sale_file_path(file) %></td>
-                  <td></td>
+                  <td>
+                    <%=
+                      link_to 'Delete', sale_file_path(file), 
+                      method: :delete, data: { confirm: 'Are you sure?' } 
+                    %> 
+                  </td>
                 </tr>
               <% end %>
             </tbody>

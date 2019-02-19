@@ -6,7 +6,7 @@ class SaleFile < ApplicationRecord
   ]
 
 	# Associations
-	has_many :sales
+	has_many :sales, dependent: :destroy
 
 	# File upload
 	attachment :file
@@ -20,7 +20,7 @@ class SaleFile < ApplicationRecord
   # Class methods
 
   # Instance methods
-  
+
   def total_gross_file
     sales.map {|sale| sale.total_gross }.sum
   end
