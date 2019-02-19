@@ -15,7 +15,15 @@ class SaleFile < ApplicationRecord
 	validates :file, presence: true
 
 	# Callbacks
-	after_commit :process_file
+	after_commit :process_file, on: :create
+
+  # Class methods
+
+  # Instance methods
+  
+  def total_gross_file
+    sales.map {|sale| sale.total_gross }.sum
+  end
 
 	def import!
 		sale_file_service = SaleFileService.new(self)
@@ -25,7 +33,6 @@ class SaleFile < ApplicationRecord
 
     logger.info("*** Importing... ***")
 
-    # file_service.raise_invalid_extension unless file_service.text_plain_extension?
     sale_file_service.valid_header?(lines.headers, VALID_HEADER)
     
     begin

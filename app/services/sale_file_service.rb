@@ -9,7 +9,7 @@ class SaleFileService
 	end
 
 	def read_lines
-		csv_options = { :encoding => 'ISO-8859-1:UTF-8', :skip_blanks => true, headers: true, :col_sep => "\t" }
+		csv_options = { :skip_blanks => true, headers: true, :col_sep => "\t" }
   	csv = CSV.read(get_file, csv_options)
     csv
 	end

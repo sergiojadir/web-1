@@ -1,3 +1,11 @@
+<h1 class="display-3">File details</h1>
+  <strong>File name: </strong> <%= @file.file_filename %>
+  <br>
+  <strong>Total gross income: </strong> <%= @file.total_gross_file %>
+</div>
+
+<div class="container">
+<br>
 <div class="ibox-content">
   <div class="table table-striped">
   	<table class="table">
@@ -9,6 +17,7 @@
           <th>Purchase count</th>
           <th>Merchant address</th>
           <th>Merchant name</th>
+          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +29,7 @@
             <td><%= sale.purchase_count %></td>
             <td><%= sale.merchant_address %></td>
             <td><%= sale.merchant_name %></td>
+            <td><%= sale.total_gross %></td>
           </tr>
         <% end %>
       </tbody>
