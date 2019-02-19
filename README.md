@@ -20,6 +20,7 @@ redis
 * Database creation
 
 `rake db:create`
+
 `rake db:migrate`
 
 * Database initialization
@@ -27,9 +28,11 @@ redis
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
-redis-server
-bundle exec sidekiq
-rails s
+`redis-server`
+
+`bundle exec sidekiq`
+
+`rails s`
 
 * Deployment instructions
 
