@@ -66,6 +66,11 @@ gem 'sinatra'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 
+#M iniRacer provides a minimal two way bridge between the V8 JavaScript engine and Ruby.
 gem 'mini_racer', github: 'discourse/mini_racer'
 
+# Forms made easy for Rails
 gem 'simple_form'
+
+# Pagination
+gem 'kaminari'

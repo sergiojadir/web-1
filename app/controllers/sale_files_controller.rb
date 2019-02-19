@@ -33,6 +33,7 @@ class SaleFilesController < ApplicationController
 	end
 
 	def show
+		@sales = @file.sales.page(params[:page]).per(6)
 	end
 
 	private

@@ -1,48 +1,17 @@
 require "csv"
 
 class SaleFileService
-  VALID_HEADER = [
-    "purchaser name", "item description", "item price",
-    "purchase count", "merchant address", "merchant name"
-  ]
+  attr_reader :file, :path, :valid_header
 
 	def initialize(file)
 		@file = file
 		@path = "#{Rails.root}/tmp/sale_files/#{file.id}"
-    @logger = Logger.new(STDOUT)
 	end
 
-	def import!
+	def read_lines
 		csv_options = { :encoding => 'ISO-8859-1:UTF-8', :skip_blanks => true, headers: true, :col_sep => "\t" }
   	csv = CSV.read(get_file, csv_options)
-		
-    valid_header?(csv.headers)
-    
-    @logger.info("*** Importing... ***")
-    
-    begin
-      GC.start
-
-      csv.lazy.each do |params|
-        sale = Sale.new
-        sale.purchaser_name = "#{params['purchaser name']}"
-        sale.item_description = params['item description']
-        sale.item_price = params['item price']
-        sale.purchase_count = params['purchase count']
-        sale.merchant_address = params['merchant address']
-        sale.merchant_name = params['merchant name']
-        sale.sale_file_id = @file.id
-        
-        sale.save
-      end
-
-      GC.start
-      FileUtils.rm_rf(@path)
-      @logger.info("*** File successfully imported ***")
-    rescue Exception => e
-      FileUtils.rm_rf(@path)
-      @logger.fatal("Error: #{e.message}")
-    end
+    csv
 	end
 
 	def get_file
@@ -58,8 +27,12 @@ class SaleFileService
 		file
 	end
 
-  def valid_header?(file_header)
-    return invalid_header(file_header) if file_header != VALID_HEADER
+  def remove_temp_file
+    FileUtils.rm_rf(self.path)
+  end
+
+  def valid_header?(file_header, valid_header)
+    return invalid_header(file_header) if file_header != valid_header
   end
 
   def invalid_header(file_header)
